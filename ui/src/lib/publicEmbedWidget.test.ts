@@ -4,12 +4,12 @@ import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const widgetSource = readFileSync(
-    resolve(process.cwd(), 'public/embed/dograh-widget.js'),
+    resolve(process.cwd(), 'public/embed/rooflyzer-widget.js'),
     'utf8',
 );
 
 type WidgetWindow = Window & {
-    DograhWidget?: {
+    RooflyzerWidget?: {
         init: () => Promise<void>;
         start: () => Promise<void>;
         startChat: () => Promise<void>;
@@ -36,7 +36,7 @@ function createFetchMock(autoStart: boolean) {
                     settings: {
                         widgetType: 'chat',
                         embedMode: 'inline',
-                        containerId: 'dograh-inline-container',
+                        containerId: 'rooflyzer-inline-container',
                     },
                     auto_start: autoStart,
                 }),
@@ -84,13 +84,13 @@ async function loadWidget(fetchMock: ReturnType<typeof createFetchMock>) {
     window.eval(widgetSource);
     await flushMicrotasks();
 
-    const widget = (window as WidgetWindow).DograhWidget;
+    const widget = (window as WidgetWindow).RooflyzerWidget;
     expect(widget).toBeDefined();
     if (fetchMock.mock.calls.length === 0) {
         await widget?.init();
     }
     await flushMicrotasks();
-    return widget as NonNullable<WidgetWindow['DograhWidget']>;
+    return widget as NonNullable<WidgetWindow['RooflyzerWidget']>;
 }
 
 describe('public embed widget chat lifecycle', () => {
@@ -98,13 +98,13 @@ describe('public embed widget chat lifecycle', () => {
         vi.useFakeTimers();
         document.head.innerHTML = '';
         document.body.innerHTML = `
-            <script src="http://widget.test/embed/dograh-widget.js?token=emb_TEST"></script>
-            <div id="dograh-inline-container"></div>
+            <script src="http://widget.test/embed/rooflyzer-widget.js?token=emb_TEST"></script>
+            <div id="rooflyzer-inline-container"></div>
         `;
     });
 
     afterEach(() => {
-        delete (window as WidgetWindow).DograhWidget;
+        delete (window as WidgetWindow).RooflyzerWidget;
         vi.useRealTimers();
         vi.unstubAllGlobals();
         vi.restoreAllMocks();
@@ -216,7 +216,7 @@ describe('public embed widget chat lifecycle', () => {
 
         window.eval(widgetSource);
         await flushMicrotasks();
-        const widget = (window as WidgetWindow).DograhWidget;
+        const widget = (window as WidgetWindow).RooflyzerWidget;
         expect(widget).toBeDefined();
 
         const startPromise = widget?.start();
@@ -233,7 +233,7 @@ describe('public embed widget chat lifecycle', () => {
                 settings: {
                     widgetType: 'chat',
                     embedMode: 'inline',
-                    containerId: 'dograh-inline-container',
+                    containerId: 'rooflyzer-inline-container',
                 },
                 auto_start: false,
             }),

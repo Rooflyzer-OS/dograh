@@ -90,7 +90,7 @@ const configuration: TelephonyConfigurationDetail = {
   credentials: {
     bearer_token: "********token",
     domain_id: "example.cloudonix.net",
-    application_name: "dograh-app",
+    application_name: "rooflyzer-app",
     outbound_trunks: [
       {
         id: "trunk-1",
@@ -177,7 +177,7 @@ describe("SipConnectivityCard", () => {
           provider: "cloudonix",
           bearer_token: "********token",
           domain_id: "example.cloudonix.net",
-          application_name: "dograh-app",
+          application_name: "rooflyzer-app",
           // A list so more trunks can be added later; this form owns the
           // first one and round-trips its Dograh id.
           outbound_trunks: [

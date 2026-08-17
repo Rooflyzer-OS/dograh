@@ -325,7 +325,7 @@ export default function APIKeysPage() {
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-8">
                         <h1 className="text-3xl font-bold mb-2">Developer Portal</h1>
-                        <p className="text-muted-foreground">Manage your API keys to access Dograh services programmatically</p>
+                        <p className="text-muted-foreground">Manage your API keys to access Rooflyzer services programmatically</p>
                     </div>
 
                     {error && (
@@ -442,14 +442,14 @@ export default function APIKeysPage() {
                         </CardContent>
                     </Card>
 
-                    {/* Dograh Service Keys Section */}
+                    {/* Rooflyzer Service Keys Section */}
                     <Card className="mb-6">
                         <CardHeader>
                             <div className="flex justify-between items-center">
                                 <div>
-                                    <CardTitle>Dograh Service Keys</CardTitle>
+                                    <CardTitle>Rooflyzer Service Keys</CardTitle>
                                     <CardDescription>
-                                        Manage service keys for accessing Dograh AI services (LLM, TTS, STT)
+                                        Manage service keys for accessing Rooflyzer AI services (LLM, TTS, STT)
                                     </CardDescription>
                                 </div>
                                 <div className="flex gap-2">
@@ -473,7 +473,7 @@ export default function APIKeysPage() {
                                         </Button>
                                     ) : (
                                         <span className="text">
-                                            To generate additional service keys, <a href="https://app.dograh.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sign up on app.dograh.com</a>
+                                            To generate additional service keys, <a href="https://app.rooflyzer.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sign up on app.rooflyzer.com</a>
                                         </span>
                                     )}
                                 </div>
@@ -647,7 +647,7 @@ export default function APIKeysPage() {
                     <DialogHeader>
                         <DialogTitle>Create New Service Key</DialogTitle>
                         <DialogDescription>
-                            Create a service key to access Dograh AI services (LLM, TTS, STT)
+                            Create a service key to access Rooflyzer AI services (LLM, TTS, STT)
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
@@ -700,7 +700,7 @@ export default function APIKeysPage() {
                             </div>
                             <div className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
                                 <p className="text-sm text-blue-600 dark:text-blue-500">
-                                    This key provides access to Dograh AI services including LLM, Text-to-Speech, and Speech-to-Text.
+                                    This key provides access to Rooflyzer AI services including LLM, Text-to-Speech, and Speech-to-Text.
                                     {createdServiceKey.expires_at && (
                                         <span className="block mt-1">
                                             Expires on: {formatDate(createdServiceKey.expires_at)}
